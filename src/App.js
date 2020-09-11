@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import AllTasks from './components/AllTasks';
+import CompletedTasks from './components/CompletedTasks';
 
 function App() {
     return (
-        <div className='App'>
-            <p>Hello World!</p>
-        </div>
+        <>
+            <Header />
+            <AllTasks />
+            <CompletedTasks />
+        </>
     );
 }
 
