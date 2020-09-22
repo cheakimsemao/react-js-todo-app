@@ -4,8 +4,12 @@ const CompletedTasks = () => {
     return (
         <div id='completed-tasks'>
             <div className='flex-container'>
-                <p className='completedTasks-title'>Completed</p>
-                <button className='add-btn'>HIDE</button>
+                <div>
+                    <p className='completedTasks-title'>Completed</p>
+                </div>
+                <div>
+                    <button className='hide-btn'>HIDE</button>
+                </div>
             </div>
             <hr className='task-line' />
             <div className='flex-container'>

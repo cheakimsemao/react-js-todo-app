@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdEdit, MdDelete } from 'react-icons/md';
 
 const AllTasks = () => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <div id='all-tasks'>
             <div className='flex-container'>
                 <div>
                     <p className='allTasks-title'>All Tasks</p>
                 </div>
-                <button className='add-btn'>ADD</button>
+                <div>
+                    <button className='add-btn'>ADD</button>
+                </div>
             </div>
             <hr className='task-line' />
             <div className='flex-container'>

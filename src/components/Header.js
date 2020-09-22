@@ -8,7 +8,7 @@ const Header = () => {
                 <hr className='header-line' />
                 <p className='header-datetime'>9 Sep 2020, Wednesday</p>
             </div>
-            <div className='progress'>
+            <div className='todo-progress'>
                 <div>
                     <p className='progress-title'>TOTAL</p>
                     <p className='progress-number'>18</p>
