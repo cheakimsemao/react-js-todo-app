@@ -13,6 +13,8 @@ body {
     justify-content: space-between;
 }
 
+/* Header */
+
 #header {
     background-image: url('../src/assets/images/background.jpeg');
     background-color: #cccccc;
@@ -74,6 +76,96 @@ body {
     padding-top: 5px;
     font-size: 22px;
 }
+
+/* All Tasks */
+
+#all-tasks,
+#completed-tasks {
+    margin: 40px auto 0;
+    width: 700px;
+}
+
+.allTasks-title,
+.completedTasks-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.task-line {
+    border: none;
+    width: 100%;
+    height: 1px;
+    color: #cccccc;
+    background-color: #cccccc;
+    margin: 25px 0;
+}
+
+.add-btn {
+    color: #ffffff;
+    background-color: #5c637b;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.add-btn:hover {
+    cursor: pointer;
+}
+
+#all-task-span {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.todo-item {
+    position: relative;
+    padding-left: 30px;
+}
+
+input[type='checkbox'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.edit-icon,
+.delete-icon {
+    margin-right: 15px;
+    font-size: 22px;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+    cursor: pointer;
+}
+
+.edit-icon {
+    color: #5c637b;
+}
+
+.delete-icon {
+    color: #e94e4e;
+}
+
+.deadline {
+    margin-left: 30px;
+    color: #939393;
+}
+
+/* Completed Tasks */
+
+.undo-task {
+    margin-right: 15px;
+}
+
+.undo-task:hover {
+    cursor: pointer;
+}
+
+/* Media */
 
 @media only screen and (max-width: 960px) {
     .header-title {
@@ -146,5 +238,10 @@ body {
 
     .progress-number {
         font-size: 11px;
+    }
+
+    #all-tasks,
+    #completed-tasks {
+        width: 80%;
     }
 }
