@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdEdit, MdDelete } from 'react-icons/md';
+import { Modal, Button, Form } from 'react-bootstrap';
 
 const AllTasks = () => {
     const [show, setShow] = useState(false);
@@ -14,7 +15,38 @@ const AllTasks = () => {
                     <p className='allTasks-title'>All Tasks</p>
                 </div>
                 <div>
-                    <button className='add-btn'>ADD</button>
+                    <button className='add-btn' onClick={handleShow}>
+                        ADD
+                    </button>
+                    <Modal show={show} onHide={handleClose} centered>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Add Todo Item</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body closeButton>
+                            <Form>
+                                <Form.Group controlId='formBasicEmail'>
+                                    <Form.Label>Todo Name</Form.Label>
+                                    <Form.Control type='email' placeholder='Enter todo name' />
+                                </Form.Group>
+                                <Form.Group controlId='formBasicPassword'>
+                                    <Form.Label>Date</Form.Label>
+                                    <Form.Control type='date' />
+                                </Form.Group>
+                                <Form.Group controlId='formBasicPassword'>
+                                    <Form.Label>Time</Form.Label>
+                                    <Form.Control type='time' />
+                                </Form.Group>
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant='secondary' onClick={handleClose}>
+                                Close
+                            </Button>
+                            <Button variant='primary' onClick={handleClose}>
+                                Submit
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             </div>
             <hr className='task-line' />
