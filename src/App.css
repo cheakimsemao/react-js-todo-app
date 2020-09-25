@@ -79,6 +79,29 @@ body {
     margin: 0;
 }
 
+/* Modal */
+
+.modal-body .form-label {
+    font-weight: 500;
+}
+
+.modal-footer #modal-add,
+.modal-footer #modal-close {
+    color: #ffffff;
+    padding: 5px 20px;
+    border-radius: 7px;
+}
+
+.modal-footer #modal-add {
+    background-color: #5c637b;
+    border-color: #5c637b;
+}
+
+.modal-footer #modal-close {
+    background-color: #e94e4e;
+    border-color: #e94e4e;
+}
+
 /* All Tasks */
 
 #all-tasks,

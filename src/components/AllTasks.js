@@ -20,7 +20,7 @@ const AllTasks = () => {
                     </button>
                     <Modal show={show} onHide={handleClose} centered>
                         <Modal.Header closeButton>
-                            <Modal.Title>Add Todo Item</Modal.Title>
+                            <Modal.Title>ADD TODO ITEM</Modal.Title>
                         </Modal.Header>
                         <Modal.Body closeButton>
                             <Form>
@@ -39,11 +39,11 @@ const AllTasks = () => {
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant='secondary' onClick={handleClose}>
-                                Close
+                            <Button onClick={handleClose} id='modal-close'>
+                                CLOSE
                             </Button>
-                            <Button variant='primary' onClick={handleClose}>
-                                Submit
+                            <Button onClick={handleClose} id='modal-add'>
+                                ADD
                             </Button>
                         </Modal.Footer>
                     </Modal>
