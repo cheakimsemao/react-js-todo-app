@@ -13,7 +13,7 @@ function App() {
         <>
             <Header />
             <AddTodo inputText={inputText} setInputText={setInputText} todos={todos} setTodos={setTodos} />
-            <AllTasks todos={todos} />
+            <AllTasks todos={todos} setTodos={setTodos} />
             <CompletedTasks />
         </>
     );

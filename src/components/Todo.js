@@ -1,7 +1,11 @@
 import React from 'react';
 import { MdEdit, MdDelete } from 'react-icons/md';
 
-const Todo = ({ text }) => {
+const Todo = ({ text, todo, todos, setTodos }) => {
+    const deleteHandler = () => {
+        setTodos(todos.filter((el) => el.id !== todo.id));
+    };
+
     return (
         <>
             <div className='flex-container'>
@@ -13,7 +17,7 @@ const Todo = ({ text }) => {
                     <a type='button'>
                         <MdEdit className='edit-icon' />
                     </a>
-                    <a type='button'>
+                    <a type='button' onClick={deleteHandler}>
                         <MdDelete className='delete-icon' />
                     </a>
                 </div>
