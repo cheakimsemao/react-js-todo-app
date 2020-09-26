@@ -6,12 +6,26 @@ const Todo = ({ text, todo, todos, setTodos }) => {
         setTodos(todos.filter((el) => el.id !== todo.id));
     };
 
+    const completeHandler = () => {
+        setTodos(
+            todos.map((item) => {
+                if (item.id === todo.id) {
+                    return {
+                        ...item,
+                        completed: !item.completed,
+                    };
+                }
+                return item;
+            })
+        );
+    };
+
     return (
         <>
             <div className='flex-container'>
                 <div className='todo-item'>
-                    <input type='checkbox' />
-                    <span>{text}</span>
+                    <input type='checkbox' onClick={completeHandler} />
+                    <span className={todo.completed ? 'completed' : null}>{text}</span>
                 </div>
                 <div>
                     <a type='button'>
