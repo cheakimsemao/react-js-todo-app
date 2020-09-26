@@ -104,9 +104,8 @@ body {
 
 /* All Tasks */
 
-#all-tasks,
-#completed-tasks {
-    margin: 40px auto 0;
+#all-tasks {
+    margin: 0 auto;
     width: 700px;
 }
 
@@ -186,6 +185,12 @@ input[type='checkbox'] {
 }
 
 /* Completed Tasks */
+
+#completed-tasks,
+#add-todo {
+    margin: 40px auto 0;
+    width: 700px;
+}
 
 .undo-task {
     color: #5c637b;
