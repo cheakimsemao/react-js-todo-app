@@ -7,7 +7,15 @@ const AllTasks = ({ todos, setTodos }) => {
         <div id='all-tasks'>
             <div>
                 {todos.map((todo) => (
-                    <Todo key={todo.id} text={todo.text} todo={todo} todos={todos} setTodos={setTodos} />
+                    <Todo
+                        key={todo.id}
+                        text={todo.text}
+                        date={todo.date}
+                        time={todo.time}
+                        todo={todo}
+                        todos={todos}
+                        setTodos={setTodos}
+                    />
                 ))}
             </div>
         </div>

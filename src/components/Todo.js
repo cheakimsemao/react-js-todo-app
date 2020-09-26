@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdEdit, MdDelete } from 'react-icons/md';
 
-const Todo = ({ text, todo, todos, setTodos }) => {
+const Todo = ({ text, date, time, todo, todos, setTodos }) => {
     const deleteHandler = () => {
         setTodos(todos.filter((el) => el.id !== todo.id));
     };
@@ -28,7 +28,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
                     <span className={todo.completed ? 'completed' : null}>{text}</span>
                 </div>
                 <div>
-                    <a type='button'>
+                    <a type='button' className={todo.completed ? 'disappear' : null}>
                         <MdEdit className='edit-icon' />
                     </a>
                     <a type='button' onClick={deleteHandler}>
@@ -36,7 +36,9 @@ const Todo = ({ text, todo, todos, setTodos }) => {
                     </a>
                 </div>
             </div>
-            <small className='deadline'>Today, 9:00 PM</small>
+            <small className='deadline'>
+                {date}, {time}
+            </small>
             <hr className='task-line' />
         </>
     );

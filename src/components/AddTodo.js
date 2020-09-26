@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-const AddTodo = ({ inputText, setInputText, todos, setTodos }) => {
+const AddTodo = ({
+    inputText,
+    setInputText,
+    inputDate,
+    setInputDate,
+    inputTime,
+    setInputTime,
+    todos,
+    setTodos,
+}) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -10,10 +19,24 @@ const AddTodo = ({ inputText, setInputText, todos, setTodos }) => {
         setInputText(e.target.value);
     };
 
+    const inputDateHandler = (e) => {
+        setInputDate(e.target.value);
+    };
+
+    const inputTimeHandler = (e) => {
+        console.log(e.target.value);
+        setInputTime(e.target.value);
+    };
+
     const addTodoHandler = (e) => {
         e.preventDefault();
-        setTodos([...todos, { id: Math.random() * 1000, text: inputText, completed: false }]);
+        setTodos([
+            ...todos,
+            { id: Math.random() * 1000, text: inputText, completed: false, date: inputDate, time: inputTime },
+        ]);
         setInputText('');
+        setInputDate('');
+        setInputTime('');
         handleClose();
     };
 
@@ -44,11 +67,11 @@ const AddTodo = ({ inputText, setInputText, todos, setTodos }) => {
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Date</Form.Label>
-                                    <Form.Control type='date' />
+                                    <Form.Control value={inputDate} onChange={inputDateHandler} type='date' />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Time</Form.Label>
-                                    <Form.Control type='time' />
+                                    <Form.Control value={inputTime} onChange={inputTimeHandler} type='time' />
                                 </Form.Group>
                             </Form>
                         </Modal.Body>
