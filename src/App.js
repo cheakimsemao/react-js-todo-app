@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import AllTasks from './components/AllTodos';
-import CompletedTasks from './components/CompletedTasks';
 import AddTodo from './components/AddTodo';
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
                 setTodos={setTodos}
             />
             <AllTasks todos={todos} setTodos={setTodos} />
-            <CompletedTasks />
         </>
     );
 }

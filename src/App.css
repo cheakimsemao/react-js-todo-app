@@ -192,24 +192,9 @@ input[type='checkbox'] {
     display: none;
 }
 
-/* Completed Tasks */
-
-#completed-tasks,
 #add-todo {
     margin: 40px auto 0;
     width: 700px;
-}
-
-.undo-task {
-    color: #5c637b;
-    font-weight: 500;
-    margin-right: 25px;
-}
-
-.undo-task:hover {
-    color: #5c637b;
-    cursor: pointer;
-    text-decoration: none;
 }
 
 /* Media */
