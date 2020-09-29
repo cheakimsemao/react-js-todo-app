@@ -102,15 +102,15 @@ body {
     border-color: #e94e4e;
 }
 
-/* All Tasks */
+/* All Todos */
 
-#all-tasks {
+#all-todos,
+#add-todo {
     margin: 0 auto;
     width: 700px;
 }
 
-.allTasks-title,
-.completedTasks-title {
+.allTodos-title {
     font-size: 25px;
     font-weight: 500;
     margin: 0;
@@ -141,11 +141,11 @@ body {
     cursor: pointer;
 }
 
-#all-task-span {
+/* #all-task-span {
     position: absolute;
     top: 0;
     left: 0;
-}
+} */
 
 .todo-item {
     position: relative;
@@ -228,6 +228,12 @@ input[type='checkbox'] {
     .progress-number {
         font-size: 18px;
     }
+
+    #add-todo,
+    #all-todos {
+        width: 80%;
+        margin: 40px auto;
+    }
 }
 
 @media only screen and (max-width: 725px) {
@@ -272,8 +278,9 @@ input[type='checkbox'] {
         font-size: 11px;
     }
 
-    #all-tasks,
-    #completed-tasks {
+    #add-todo,
+    #all-todos {
         width: 80%;
+        margin: 40px auto;
     }
 }

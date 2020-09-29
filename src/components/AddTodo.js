@@ -10,6 +10,7 @@ const AddTodo = ({
     setInputTime,
     todos,
     setTodos,
+    setTotal,
 }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -24,7 +25,6 @@ const AddTodo = ({
     };
 
     const inputTimeHandler = (e) => {
-        console.log(e.target.value);
         setInputTime(e.target.value);
     };
 
@@ -34,6 +34,7 @@ const AddTodo = ({
             ...todos,
             { id: Math.random() * 1000, text: inputText, completed: false, date: inputDate, time: inputTime },
         ]);
+        setTotal((prevCount) => prevCount + 1);
         setInputText('');
         setInputDate('');
         setInputTime('');
@@ -44,7 +45,7 @@ const AddTodo = ({
         <div id='add-todo'>
             <div className='flex-container'>
                 <div>
-                    <p className='allTasks-title'>All Tasks</p>
+                    <p className='allTodos-title'>All Todos</p>
                 </div>
                 <div>
                     <button className='add-btn' onClick={handleShow}>
@@ -54,7 +55,7 @@ const AddTodo = ({
                         <Modal.Header closeButton>
                             <Modal.Title>ADD TODO ITEM</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body closeButton>
+                        <Modal.Body>
                             <Form>
                                 <Form.Group>
                                     <Form.Label>Todo Name</Form.Label>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import AllTasks from './components/AllTodos';
+import AllTodo from './components/AllTodos';
 import AddTodo from './components/AddTodo';
 
 function App() {
@@ -10,9 +10,14 @@ function App() {
     const [inputTime, setInputTime] = useState('');
     const [todos, setTodos] = useState([]);
 
+    const initailCount = 0;
+    const [total, setTotal] = useState(initailCount);
+    const [completed, setCompleted] = useState(initailCount);
+    const [done, setDone] = useState(initailCount);
+
     return (
         <>
-            <Header />
+            <Header total={total} completed={completed} done={done} setDone={setDone} />
             <AddTodo
                 inputText={inputText}
                 setInputText={setInputText}
@@ -22,8 +27,18 @@ function App() {
                 setInputTime={setInputTime}
                 todos={todos}
                 setTodos={setTodos}
+                setTotal={setTotal}
             />
-            <AllTasks todos={todos} setTodos={setTodos} />
+            <AllTodo
+                todos={todos}
+                setTodos={setTodos}
+                total={total}
+                setTotal={setTotal}
+                completed={completed}
+                setCompleted={setCompleted}
+                done={done}
+                setDone={setDone}
+            />
         </>
     );
 }
