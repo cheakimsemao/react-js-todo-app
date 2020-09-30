@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import AllTodo from './components/AllTodos';
 import AddTodo from './components/AddTodo';
 
 function App() {
-    const [inputText, setInputText] = useState('');
-    const [inputDate, setInputDate] = useState('');
-    const [inputTime, setInputTime] = useState('');
-    const [todos, setTodos] = useState([]);
-
     const initailCount = 0;
     const [total, setTotal] = useState(initailCount);
     const [completed, setCompleted] = useState(initailCount);
     const [done, setDone] = useState(initailCount);
+
+    const [inputText, setInputText] = useState('');
+    const [inputDate, setInputDate] = useState('');
+    const [inputTime, setInputTime] = useState('');
+    const [todos, setTodos] = useState([]);
+    const [status, setStatus] = useState('all');
+    const [filteredTodos, setFilteredTodos] = useState([]);
+
+    const filterHandler = () => {
+        switch (status) {
+            case 'completed':
+                setFilteredTodos(todos.filter((todo) => todo.completed === true));
+                break;
+            case 'uncompleted':
+                setFilteredTodos(todos.filter((todo) => todo.completed === false));
+                break;
+            default:
+                setFilteredTodos(todos);
+                break;
+        }
+    };
+
+    useEffect(() => {
+        filterHandler();
+    }, [todos, status]);
 
     return (
         <>
@@ -28,6 +48,7 @@ function App() {
                 todos={todos}
                 setTodos={setTodos}
                 setTotal={setTotal}
+                setStatus={setStatus}
             />
             <AllTodo
                 todos={todos}
@@ -38,6 +59,7 @@ function App() {
                 setCompleted={setCompleted}
                 done={done}
                 setDone={setDone}
+                filteredTodos={filteredTodos}
             />
         </>
     );

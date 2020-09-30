@@ -1,11 +1,20 @@
 import React from 'react';
 import Todo from './Todo';
 
-const AllTasks = ({ todos, setTodos, total, setTotal, completed, setCompleted, done, setDone }) => {
-    console.log(todos);
+const AllTasks = ({
+    todos,
+    setTodos,
+    total,
+    setTotal,
+    completed,
+    setCompleted,
+    done,
+    setDone,
+    filteredTodos,
+}) => {
     return (
         <div id='all-todos'>
-            {todos.map((todo) => (
+            {filteredTodos.map((todo) => (
                 <Todo
                     key={todo.id}
                     text={todo.text}

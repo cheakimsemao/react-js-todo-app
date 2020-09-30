@@ -11,6 +11,7 @@ const AddTodo = ({
     todos,
     setTodos,
     setTotal,
+    setStatus,
 }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -41,13 +42,22 @@ const AddTodo = ({
         handleClose();
     };
 
+    const statusHandler = (e) => {
+        setStatus(e.target.value);
+    };
+
     return (
         <div id='add-todo'>
-            <div className='flex-container'>
+            <div className='flex-container flex-mobile'>
                 <div>
-                    <p className='allTodos-title'>All Todos</p>
+                    <p className='allTodos-title'>ALL TODOS</p>
                 </div>
                 <div>
+                    <select id='sort-todos' onChange={statusHandler}>
+                        <option value='all'>All</option>
+                        <option value='completed'>Completed</option>
+                        <option value='uncompleted'>Uncompleted</option>
+                    </select>
                     <button className='add-btn' onClick={handleShow}>
                         ADD
                     </button>
