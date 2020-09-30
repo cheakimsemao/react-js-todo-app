@@ -31,8 +31,43 @@ function App() {
         }
     };
 
+    // save to local
+    const saveTodosInLocal = () => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+        localStorage.setItem('total', JSON.stringify(total));
+        localStorage.setItem('completed', JSON.stringify(completed));
+        localStorage.setItem('done', JSON.stringify(done));
+    };
+
+    const getTodosFromLocal = () => {
+        if (localStorage.getItem('todos') === null) {
+            localStorage.setItem('todos', JSON.stringify([]));
+        } else {
+            let todosLocal = JSON.parse(localStorage.getItem('todos'));
+            setTodos(todosLocal);
+        }
+    };
+
+    const getProgressFromLocal = () => {
+        if (localStorage.getItem('todos') !== null) {
+            let totalLocal = JSON.parse(localStorage.getItem('total'));
+            let completedLocal = JSON.parse(localStorage.getItem('completed'));
+            let doneLocal = JSON.parse(localStorage.getItem('done'));
+            setTotal(totalLocal);
+            setCompleted(completedLocal);
+            setDone(doneLocal);
+        }
+    };
+
+    // runs only once
+    useEffect(() => {
+        getTodosFromLocal();
+        getProgressFromLocal();
+    }, []);
+
     useEffect(() => {
         filterHandler();
+        saveTodosInLocal();
     }, [todos, status]);
 
     return (

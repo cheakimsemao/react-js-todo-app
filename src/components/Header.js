@@ -20,8 +20,8 @@ const Header = ({ total, completed, done, setDone }) => {
 
             // You can't provide utc if you skip other args (use the "UTC:" mask prefix)
             if (
-                arguments.length == 1 &&
-                Object.prototype.toString.call(date) == '[object String]' &&
+                arguments.length === 1 &&
+                Object.prototype.toString.call(date) === '[object String]' &&
                 !/\d/.test(date)
             ) {
                 mask = date;
@@ -35,7 +35,7 @@ const Header = ({ total, completed, done, setDone }) => {
             mask = String(dF.masks[mask] || mask || dF.masks['default']);
 
             // Allow setting the utc argument via the mask
-            if (mask.slice(0, 4) == 'UTC:') {
+            if (mask.slice(0, 4) === 'UTC:') {
                 mask = mask.slice(4);
                 utc = true;
             }
@@ -77,7 +77,7 @@ const Header = ({ total, completed, done, setDone }) => {
                     TT: H < 12 ? 'AM' : 'PM',
                     Z: utc ? 'UTC' : (String(date).match(timezone) || ['']).pop().replace(timezoneClip, ''),
                     o: (o > 0 ? '-' : '+') + pad(Math.floor(Math.abs(o) / 60) * 100 + (Math.abs(o) % 60), 4),
-                    S: ['th', 'st', 'nd', 'rd'][d % 10 > 3 ? 0 : (((d % 100) - (d % 10) != 10) * d) % 10],
+                    S: ['th', 'st', 'nd', 'rd'][d % 10 > 3 ? 0 : (((d % 100) - (d % 10) !== 10) * d) % 10],
                 };
 
             return mask.replace(token, function ($0) {
@@ -149,9 +149,9 @@ const Header = ({ total, completed, done, setDone }) => {
     };
 
     // For convenience...
-    Date.prototype.format = function (mask, utc) {
-        return dateFormat(this, mask, utc);
-    };
+    // Date.prototype.format = function (mask, utc) {
+    //     return dateFormat(this, mask, utc);
+    // };
 
     return (
         <div id='header' className='flex-container'>
