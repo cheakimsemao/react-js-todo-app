@@ -29,7 +29,7 @@ const Todo = ({ text, date, time, todo, todos, setTodos, setTotal, setCompleted 
         <>
             <div className='flex-container'>
                 <div className='todo-item'>
-                    <input type='checkbox' onClick={completeHandler} />
+                    <input type='checkbox' onClick={completeHandler} checked={todo.completed} />
                     <span className={todo.completed ? 'completed' : null}>{text}</span>
                 </div>
                 <div>
